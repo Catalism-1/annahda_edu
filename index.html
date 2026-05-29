@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Annahda Education - Kuliah ke Al-Azhar Mesir</title>
+  <meta name="description" content="Bimbingan kuliah ke Al-Azhar Mesir untuk pelajar Indonesia. Konsultasi jurusan, berkas, legalisir, persiapan bahasa, sampai keberangkatan." />
+  <script>
+    (() => {
+      try {
+        const savedTheme = localStorage.getItem('annahda-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = savedTheme || (prefersDark ? 'dark' : 'light');
+      } catch {
+        document.documentElement.dataset.theme = 'light';
+      }
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #181115;
+      --muted: #6d6266;
+      --paper: #fffaf2;
+      --soft: #f4eee5;
+      --line: rgba(24, 17, 21, .11);
+      --maroon: #7c2f2f;
+      --maroon-2: #3f1414;
+      --gold: #d7b657;
+      --gold-soft: #f2d98b;
+      --mint: #216f62;
+      --blue: #2d4d77;
+      --white: #ffffff;
+      --shadow: 0 24px 70px rgba(74, 14, 26, .15);
+      --radius: 22px;
+      color-scheme: light;
+    }
+
+    [data-theme="dark"] {
+      --ink: #fff7e8;
+      --muted: #c9b9a5;
+      --paper: #090303;
+      --soft: #150908;
+      --line: rgba(231, 190, 85, .2);
+      --maroon: #a8463f;
+      --maroon-2: #ffe5a0;
+      --gold: #e5bf58;
+      --gold-soft: #ffe7a6;
+      --mint: #5fb7a6;
+      --blue: #8aabd7;
+      --white: #120c0b;
+      --shadow: 0 28px 80px rgba(0, 0, 0, .42);
+      color-scheme: dark;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.65;
+      overflow-x: hidden;
+      transition: background .25s ease, color .25s ease;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button, input, select { font: inherit; }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--maroon);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--gold);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      letter-spacing: 0;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      color: var(--white);
+      background: var(--maroon);
+      box-shadow: 0 16px 34px rgba(111, 23, 40, .25);
+    }
+    .btn-primary:hover { background: var(--maroon-2); }
+    .btn-ghost {
+      color: var(--maroon);
+      background: rgba(255, 255, 255, .72);
+      border-color: rgba(111, 23, 40, .16);
+    }
+    .btn-ghost:hover { border-color: rgba(111, 23, 40, .34); }
+
+    .nav {
+      position: fixed;
+      top: 16px;
+      left: 50%;
+      z-index: 50;
+      width: min(1120px, calc(100% - 32px));
+      transform: translateX(-50%);
+      border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--paper) 84%, transparent);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 18px 45px rgba(74, 14, 26, .12);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      padding: 0 12px 0 18px;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 900;
+      color: var(--maroon);
+      letter-spacing: -.01em;
+    }
+    .brand-logo-shell {
+      display: grid;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, #2a0d0b 0 47%, transparent 49%),
+        linear-gradient(var(--paper), var(--paper)) padding-box,
+        linear-gradient(135deg, var(--gold-soft), var(--maroon), var(--gold)) border-box;
+      border: 2px solid transparent;
+      box-shadow: 0 10px 28px rgba(63, 20, 20, .18);
+      flex: 0 0 auto;
+    }
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      object-fit: contain;
+      background: transparent;
+      border: 0;
+      padding: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+    }
+    .nav-links a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 38px;
+      padding: 0 13px;
+      border-radius: 999px;
+      color: color-mix(in srgb, var(--ink) 72%, transparent);
+      font-size: .88rem;
+      font-weight: 700;
+    }
+    .nav-links a:hover { background: rgba(111, 23, 40, .08); color: var(--maroon); }
+    .menu-toggle { display: none; }
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 68px;
+      height: 44px;
+      padding: 0 14px;
+      border: 1px solid color-mix(in srgb, var(--gold) 45%, transparent);
+      border-radius: 999px;
+      color: var(--maroon-2);
+      background: color-mix(in srgb, var(--gold) 18%, var(--paper));
+      cursor: pointer;
+      font-size: .78rem;
+      font-weight: 900;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      transition: transform .18s ease, background .18s ease, color .18s ease;
+    }
+    .theme-toggle:hover { transform: translateY(-2px); }
+
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      padding: 132px 0 72px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255, 250, 242, .98) 0%, rgba(255, 250, 242, .9) 38%, rgba(255, 250, 242, .52) 62%, rgba(255, 250, 242, .22) 100%),
+        url("assets/hero-students-cairo.png") center right / cover no-repeat;
+      z-index: -2;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      left: -12vw;
+      bottom: -24vw;
+      width: 52vw;
+      height: 52vw;
+      border-radius: 50%;
+      background: rgba(217, 173, 85, .2);
+      filter: blur(60px);
+      z-index: -1;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 420px;
+      align-items: end;
+      gap: 40px;
+    }
+    .hero-copy { max-width: 690px; }
+    .hero h1 {
+      margin-top: 18px;
+      font-family: "Playfair Display", Georgia, serif;
+      font-size: clamp(3.1rem, 8vw, 6.7rem);
+      line-height: .88;
+      letter-spacing: -.045em;
+      color: var(--maroon-2);
+    }
+    .hero h1 span {
+      display: block;
+      color: var(--maroon);
+    }
+    .hero-lead {
+      max-width: 610px;
+      margin-top: 24px;
+      color: color-mix(in srgb, var(--ink) 75%, transparent);
+      font-size: clamp(1rem, 2vw, 1.18rem);
+      font-weight: 500;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+    .mini-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 26px;
+      color: color-mix(in srgb, var(--ink) 72%, transparent);
+      font-size: .9rem;
+      font-weight: 700;
+    }
+    .mini-proof span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid color-mix(in srgb, var(--maroon) 18%, transparent);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--paper) 68%, transparent);
+    }
+    .hero-panel {
+      align-self: stretch;
+      display: grid;
+      gap: 12px;
+      align-content: end;
+    }
+    .glass-card {
+      border: 1px solid color-mix(in srgb, var(--gold) 30%, transparent);
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--paper) 72%, transparent);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      padding: 20px;
+    }
+    .deadline {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      color: var(--muted);
+      font-size: .86rem;
+      font-weight: 700;
+    }
+    .deadline strong {
+      display: block;
+      color: var(--ink);
+      font-size: 1.1rem;
+      line-height: 1.25;
+    }
+    .progress {
+      height: 10px;
+      margin-top: 16px;
+      border-radius: 999px;
+      background: rgba(111, 23, 40, .1);
+      overflow: hidden;
+    }
+    .progress span {
+      display: block;
+      width: 72%;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--maroon), var(--gold));
+    }
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .stat {
+      border-radius: 18px;
+      background: color-mix(in srgb, var(--paper) 78%, transparent);
+      padding: 16px;
+      border: 1px solid var(--line);
+    }
+    .stat b {
+      display: block;
+      color: var(--maroon);
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+    .stat span {
+      display: block;
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: .78rem;
+      font-weight: 700;
+    }
+
+    section { padding: 86px 0; }
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 32px;
+      margin-bottom: 34px;
+    }
+    .section-head h2 {
+      margin-top: 12px;
+      max-width: 700px;
+      color: var(--maroon-2);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1;
+      letter-spacing: -.045em;
+      font-weight: 900;
+    }
+    .section-head p {
+      max-width: 390px;
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .why {
+      background: var(--white);
+      border-block: 1px solid var(--line);
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+    .why-card {
+      min-height: 210px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      background: linear-gradient(180deg, color-mix(in srgb, var(--paper) 94%, #fff 6%), color-mix(in srgb, var(--soft) 88%, var(--gold) 12%));
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .why-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(74, 14, 26, .1);
+    }
+    .icon {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      margin-bottom: 26px;
+      border-radius: 14px;
+      color: var(--white);
+      background: var(--maroon);
+      font-weight: 900;
+    }
+    .why-card:nth-child(2) .icon { background: var(--mint); }
+    .why-card:nth-child(3) .icon { background: var(--blue); }
+    .why-card:nth-child(4) .icon { background: var(--gold); color: var(--maroon-2); }
+    .why-card h3 { font-size: 1rem; line-height: 1.25; }
+    .why-card p {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: .92rem;
+      font-weight: 500;
+    }
+
+    .programs {
+      background:
+        radial-gradient(circle at 8% 5%, rgba(31, 122, 104, .12), transparent 30%),
+        radial-gradient(circle at 90% 0%, rgba(217, 173, 85, .18), transparent 28%),
+        var(--soft);
+    }
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .program-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 270px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--paper) 82%, transparent);
+      padding: 24px;
+      box-shadow: 0 16px 40px rgba(74, 14, 26, .07);
+    }
+    .program-card.featured {
+      color: #fff7e8;
+      background: linear-gradient(145deg, var(--maroon), #201015);
+    }
+    .program-kicker {
+      color: var(--gold);
+      font-size: .74rem;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .program-card h3 {
+      margin-top: 14px;
+      font-size: 1.35rem;
+      line-height: 1.16;
+      letter-spacing: -.025em;
+    }
+    .program-card p {
+      margin-top: 12px;
+      color: var(--muted);
+      font-weight: 500;
+      font-size: .94rem;
+    }
+    .program-card.featured p { color: rgba(255, 255, 255, .74); }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: auto;
+      padding-top: 24px;
+    }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0 10px;
+      border-radius: 999px;
+      background: rgba(111, 23, 40, .08);
+      color: var(--maroon);
+      font-size: .76rem;
+      font-weight: 800;
+    }
+    .featured .tag {
+      background: rgba(255, 255, 255, .14);
+      color: var(--white);
+    }
+
+    .roadmap {
+      background: var(--white);
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 22px;
+      align-items: start;
+    }
+    .steps-sticky {
+      position: sticky;
+      top: 104px;
+      border-radius: var(--radius);
+      padding: 26px;
+      color: var(--white);
+      background: linear-gradient(145deg, var(--maroon-2), var(--maroon));
+      box-shadow: var(--shadow);
+    }
+    .steps-sticky h3 {
+      font-size: 1.7rem;
+      line-height: 1.05;
+      letter-spacing: -.035em;
+    }
+    .steps-sticky p {
+      margin-top: 12px;
+      color: rgba(255, 255, 255, .72);
+      font-weight: 500;
+    }
+    .step-list {
+      display: grid;
+      gap: 12px;
+    }
+    .step {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 16px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 18px;
+      background: color-mix(in srgb, var(--paper) 92%, var(--gold) 8%);
+    }
+    .step-num {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      color: var(--maroon);
+      background: rgba(217, 173, 85, .22);
+      font-weight: 900;
+    }
+    .step h4 { font-size: 1.05rem; }
+    .step p {
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: .93rem;
+      font-weight: 500;
+    }
+
+    .life {
+      background: var(--ink);
+      color: var(--white);
+      overflow: hidden;
+    }
+    .life .eyebrow { color: var(--gold); }
+    .life .section-head h2 { color: var(--white); }
+    .life .section-head p { color: rgba(255, 255, 255, .62); }
+    .life-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+    }
+    .quote-card,
+    .community-card {
+      border: 1px solid rgba(255, 255, 255, .12);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, .06);
+      padding: 28px;
+    }
+    .quote-card p {
+      font-size: clamp(1.35rem, 3vw, 2.25rem);
+      line-height: 1.12;
+      letter-spacing: -.035em;
+      font-weight: 900;
+    }
+    .quote-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+      color: rgba(255, 255, 255, .68);
+      font-weight: 700;
+    }
+    .avatar {
+      display: grid;
+      place-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      color: var(--maroon-2);
+      background: var(--gold);
+      font-weight: 900;
+    }
+    .community-list {
+      display: grid;
+      gap: 12px;
+    }
+    .community-list li {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      border-bottom: 1px solid rgba(255, 255, 255, .1);
+      padding-bottom: 12px;
+      color: rgba(255, 255, 255, .72);
+      font-weight: 600;
+    }
+    .community-list li:last-child { border-bottom: 0; padding-bottom: 0; }
+    .community-list strong { color: var(--white); }
+
+    .faq {
+      background: var(--paper);
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .faq-item {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: color-mix(in srgb, var(--paper) 82%, transparent);
+      padding: 22px;
+    }
+    .faq-item h3 {
+      color: var(--maroon-2);
+      font-size: 1rem;
+    }
+    .faq-item p {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: .93rem;
+      font-weight: 500;
+    }
+
+    .cta {
+      padding: 0 0 72px;
+      background: var(--paper);
+    }
+    .cta-box {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 28px;
+      border-radius: 30px;
+      padding: 34px;
+      color: var(--white);
+      background:
+        linear-gradient(135deg, rgba(111, 23, 40, .96), rgba(24, 17, 21, .96)),
+        url("assets/hero-students-cairo.png") center / cover no-repeat;
+      box-shadow: 0 30px 90px rgba(74, 14, 26, .24);
+    }
+    .cta-box h2 {
+      max-width: 760px;
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: .96;
+      letter-spacing: -.05em;
+    }
+    .cta-box p {
+      max-width: 620px;
+      margin-top: 12px;
+      color: rgba(255, 255, 255, .7);
+      font-weight: 600;
+    }
+    .cta-box .btn-primary {
+      background: var(--gold);
+      color: var(--maroon-2);
+      box-shadow: none;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: var(--white);
+      padding: 34px 0;
+    }
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      color: var(--muted);
+      font-size: .9rem;
+      font-weight: 600;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 14px;
+    }
+    .footer-links a { color: var(--maroon); font-weight: 800; }
+
+    [data-theme="dark"] .nav {
+      border-color: rgba(229, 191, 88, .45);
+      background:
+        linear-gradient(180deg, rgba(25, 8, 7, .96), rgba(15, 5, 4, .92));
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .5), inset 0 0 0 1px rgba(255, 231, 166, .06);
+    }
+    [data-theme="dark"] .brand { color: var(--gold-soft); }
+    [data-theme="dark"] .brand-logo-shell {
+      background:
+        radial-gradient(circle at center, #1b0807 0 46%, transparent 48%),
+        linear-gradient(#120605, #120605) padding-box,
+        linear-gradient(135deg, var(--gold-soft), #8b332e 42%, var(--gold)) border-box;
+      box-shadow: 0 0 0 5px rgba(229, 191, 88, .09), 0 16px 34px rgba(0, 0, 0, .55);
+    }
+    [data-theme="dark"] .theme-toggle {
+      color: #190c08;
+      background: var(--gold);
+      border-color: rgba(255, 231, 164, .7);
+    }
+    [data-theme="dark"] .menu-toggle {
+      color: #190c08;
+      background: var(--gold);
+    }
+    [data-theme="dark"] .nav-links a:hover {
+      background: rgba(225, 189, 90, .12);
+      color: var(--gold-soft);
+    }
+    [data-theme="dark"] .btn-primary {
+      color: #1a0b09;
+      background: var(--gold);
+      box-shadow: 0 16px 34px rgba(225, 189, 90, .18);
+    }
+    [data-theme="dark"] .btn-primary:hover { background: var(--gold-soft); }
+    [data-theme="dark"] .btn-ghost {
+      color: var(--gold-soft);
+      background: rgba(255, 247, 232, .08);
+      border-color: rgba(225, 189, 90, .28);
+    }
+    [data-theme="dark"] .hero::before {
+      background:
+        linear-gradient(90deg, rgba(11, 7, 7, .96) 0%, rgba(11, 7, 7, .84) 40%, rgba(11, 7, 7, .52) 68%, rgba(11, 7, 7, .34) 100%),
+        url("assets/hero-students-cairo.png") center right / cover no-repeat;
+    }
+    [data-theme="dark"] .hero::after {
+      background: rgba(215, 182, 87, .16);
+    }
+    [data-theme="dark"] .glass-card,
+    [data-theme="dark"] .stat,
+    [data-theme="dark"] .why-card,
+    [data-theme="dark"] .program-card,
+    [data-theme="dark"] .step,
+    [data-theme="dark"] .faq-item {
+      box-shadow: 0 18px 48px rgba(0, 0, 0, .26);
+    }
+    [data-theme="dark"] .program-card.featured,
+    [data-theme="dark"] .steps-sticky {
+      background: linear-gradient(145deg, #7c2f2f, #160908);
+      border: 1px solid rgba(225, 189, 90, .18);
+    }
+    [data-theme="dark"] .life {
+      background: #090303;
+      color: #fff7e8;
+    }
+    [data-theme="dark"] .life .section-head h2,
+    [data-theme="dark"] .quote-card p,
+    [data-theme="dark"] .community-list strong {
+      color: #fff0c2;
+    }
+    [data-theme="dark"] .life .section-head p,
+    [data-theme="dark"] .quote-author,
+    [data-theme="dark"] .community-list li {
+      color: rgba(255, 247, 232, .74);
+    }
+    [data-theme="dark"] .quote-card,
+    [data-theme="dark"] .community-card {
+      border-color: rgba(229, 191, 88, .22);
+      background: rgba(255, 247, 232, .06);
+    }
+    [data-theme="dark"] .cta-box {
+      color: #fff7e8;
+      background:
+        linear-gradient(135deg, rgba(18, 7, 7, .82), rgba(84, 28, 24, .78)),
+        url("assets/hero-students-cairo.png") center / cover no-repeat;
+    }
+    [data-theme="dark"] .cta-box h2 {
+      color: #fff0c2;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, .38);
+    }
+    [data-theme="dark"] .cta-box p {
+      color: rgba(255, 247, 232, .82);
+    }
+    [data-theme="dark"] footer {
+      background: #080505;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 920px) {
+      .nav { top: 10px; width: calc(100% - 20px); }
+      .nav-inner {
+        height: 62px;
+        padding: 0 8px 0 10px;
+        gap: 8px;
+      }
+      .brand { gap: 8px; }
+      .brand-logo-shell {
+        width: 48px;
+        height: 48px;
+      }
+      .brand-logo {
+        width: 37px;
+        height: 37px;
+      }
+      .theme-toggle {
+        min-width: 58px;
+        height: 42px;
+        padding: 0 11px;
+        font-size: .72rem;
+      }
+      .menu-toggle {
+        display: inline-grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        border: 0;
+        border-radius: 50%;
+        color: var(--white);
+        background: var(--maroon);
+        font-weight: 900;
+      }
+      .nav-links {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(100% + 10px);
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent);
+        border-radius: 24px;
+        background: color-mix(in srgb, var(--paper) 96%, transparent);
+        padding: 10px;
+        box-shadow: 0 18px 45px rgba(74, 14, 26, .12);
+      }
+      .nav.open .nav-links { display: flex; }
+      .nav-links a { justify-content: center; }
+      .hero { padding-top: 114px; }
+      .hero::before {
+        background:
+          linear-gradient(180deg, rgba(255, 250, 242, .96) 0%, rgba(255, 250, 242, .88) 52%, rgba(255, 250, 242, .72) 100%),
+          url("assets/hero-students-cairo.png") center / cover no-repeat;
+      }
+      [data-theme="dark"] .hero::before {
+        background:
+          linear-gradient(180deg, rgba(11, 7, 7, .96) 0%, rgba(11, 7, 7, .86) 52%, rgba(11, 7, 7, .75) 100%),
+          url("assets/hero-students-cairo.png") center / cover no-repeat;
+      }
+      .hero-grid,
+      .steps,
+      .life-grid,
+      .cta-box {
+        grid-template-columns: 1fr;
+      }
+      .hero-panel { margin-top: 28px; }
+      .section-head {
+        display: block;
+      }
+      .section-head p { margin-top: 14px; }
+      .why-grid,
+      .program-grid,
+      .faq-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .steps-sticky { position: static; }
+      .cta-box .btn { width: 100%; }
+    }
+
+    @media (max-width: 620px) {
+      .container { width: min(100% - 28px, 1120px); }
+      .brand span { display: none; }
+      .theme-toggle {
+        min-width: 54px;
+      }
+      .hero { min-height: auto; padding-bottom: 52px; }
+      .hero h1 { font-size: clamp(3rem, 18vw, 4.8rem); }
+      .hero-actions .btn,
+      .hero-actions { width: 100%; }
+      .hero-actions .btn { white-space: normal; }
+      .stat-row,
+      .why-grid,
+      .program-grid,
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+      section { padding: 64px 0; }
+      .why-card,
+      .program-card { min-height: auto; }
+      .step {
+        grid-template-columns: 1fr;
+      }
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+      .footer-links { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#beranda" aria-label="Annahda Education">
+        <span class="brand-logo-shell">
+          <img class="brand-logo" src="assets/logo-annahda-transparent.png" alt="" />
+        </span>
+        <span>Annahda Education</span>
+      </a>
+      <button class="theme-toggle" type="button" aria-label="Aktifkan mode gelap" aria-pressed="false">Dark</button>
+      <button class="menu-toggle" type="button" aria-label="Buka menu" aria-expanded="false">=</button>
+      <ul class="nav-links">
+        <li><a href="#program">Program</a></li>
+        <li><a href="#roadmap">Roadmap</a></li>
+        <li><a href="#cerita">Cerita</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a class="btn btn-primary" href="#daftar">Konsultasi Gratis</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <header class="hero" id="beranda">
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <span class="eyebrow">Kuliah ke Al-Azhar Mesir</span>
+          <h1>Berangkat lebih siap. <span>Belajar lebih jauh.</span></h1>
+          <p class="hero-lead">
+            Annahda Education membantu calon mahasiswa Indonesia menyiapkan jurusan, berkas, legalisir,
+            bahasa Arab, dan keberangkatan ke Cairo dengan alur yang jelas dan pendampingan manusiawi.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="GANTI_DENGAN_LINK_GOOGLE_FORM" target="_blank" rel="noopener">Mulai daftar sekarang</a>
+            <a class="btn btn-ghost" href="https://wa.me/GANTI_NOMOR_WA" target="_blank" rel="noopener">Chat tim Annahda</a>
+          </div>
+          <div class="mini-proof" aria-label="Keunggulan singkat">
+            <span>Konsultasi awal gratis</span>
+            <span>Checklist berkas rapi</span>
+            <span>Support sampai berangkat</span>
+          </div>
+        </div>
+
+        <aside class="hero-panel reveal" aria-label="Ringkasan pendaftaran">
+          <div class="glass-card">
+            <div class="deadline">
+              <div>
+                <strong>Gelombang 2026</strong>
+                Pendaftaran dan konsultasi dibuka sepanjang tahun
+              </div>
+              <div>
+                <strong>2x24 jam</strong>
+                Estimasi respons tim
+              </div>
+            </div>
+            <div class="progress" aria-hidden="true"><span></span></div>
+          </div>
+          <div class="stat-row">
+            <div class="stat">
+              <b>500+</b>
+              <span>alumni terbimbing</span>
+            </div>
+            <div class="stat">
+              <b>6</b>
+              <span>tahap pendampingan</span>
+            </div>
+            <div class="stat">
+              <b>1:1</b>
+              <span>sesi konsultasi</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <section class="why" id="keunggulan">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Bukan sekadar biro</span>
+            <h2>Yang kamu butuhkan bukan cuma link form.</h2>
+          </div>
+          <p>Kuliah lintas negara butuh rencana, dokumen, mental, dan orang yang bisa ditanya saat bingung.</p>
+        </div>
+        <div class="why-grid">
+          <article class="why-card reveal">
+            <div class="icon">01</div>
+            <h3>Jurusan dibahas dari awal</h3>
+            <p>Kamu bisa diskusi pilihan fakultas, jalur, dan kesiapan bahasa sebelum mengirim berkas.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="icon">02</div>
+            <h3>Berkas dibuat anti-acak</h3>
+            <p>Checklist dokumen, legalisir, terjemahan, dan scan file dipandu agar tidak bolak-balik.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="icon">03</div>
+            <h3>Persiapan bahasa realistis</h3>
+            <p>Arah belajar bahasa Arab disusun sesuai target seleksi dan kebutuhan adaptasi kampus.</p>
+          </article>
+          <article class="why-card reveal">
+            <div class="icon">04</div>
+            <h3>Support sampai Cairo</h3>
+            <p>Dari konsultasi keluarga sampai gambaran hidup mahasiswa Indonesia di Mesir.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="programs" id="program">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Pilihan program</span>
+            <h2>Mulai dari minatmu, bukan dari ikut-ikutan.</h2>
+          </div>
+          <p>Tim akan bantu memetakan opsi fakultas di Al-Azhar sesuai latar belajar dan tujuanmu.</p>
+        </div>
+        <div class="program-grid">
+          <article class="program-card featured reveal">
+            <span class="program-kicker">Favorit pendaftar</span>
+            <h3>Syariah wal Qanun</h3>
+            <p>Untuk kamu yang ingin mendalami fikih, hukum Islam, dan kajian syariah dengan fondasi klasik.</p>
+            <div class="tags">
+              <span class="tag">S1</span>
+              <span class="tag">Bahasa Arab</span>
+              <span class="tag">Beasiswa / mandiri</span>
+            </div>
+          </article>
+          <article class="program-card reveal">
+            <span class="program-kicker">Kajian utama</span>
+            <h3>Ushuluddin</h3>
+            <p>Cocok untuk peminat tafsir, hadits, akidah, filsafat Islam, dan studi keislaman mendalam.</p>
+            <div class="tags">
+              <span class="tag">S1 & S2</span>
+              <span class="tag">Tafsir</span>
+              <span class="tag">Hadits</span>
+            </div>
+          </article>
+          <article class="program-card reveal">
+            <span class="program-kicker">Bahasa & literasi</span>
+            <h3>Bahasa Arab</h3>
+            <p>Untuk calon mahasiswa yang ingin kuat di adab, linguistik, sastra, dan komunikasi Arab.</p>
+            <div class="tags">
+              <span class="tag">Adab</span>
+              <span class="tag">Linguistik</span>
+              <span class="tag">Mandiri</span>
+            </div>
+          </article>
+          <article class="program-card reveal">
+            <span class="program-kicker">Dakwah modern</span>
+            <h3>Dakwah Islamiyah</h3>
+            <p>Menggabungkan dasar ilmu dakwah, komunikasi, kepemimpinan, dan pelayanan masyarakat.</p>
+            <div class="tags">
+              <span class="tag">Dakwah</span>
+              <span class="tag">Komunikasi</span>
+              <span class="tag">Beasiswa</span>
+            </div>
+          </article>
+          <article class="program-card reveal">
+            <span class="program-kicker">Sains & profesi</span>
+            <h3>Kedokteran dan lainnya</h3>
+            <p>Beberapa jalur profesional tersedia dengan syarat dan kesiapan akademik yang lebih spesifik.</p>
+            <div class="tags">
+              <span class="tag">Konsultasi dulu</span>
+              <span class="tag">Mandiri</span>
+            </div>
+          </article>
+          <article class="program-card reveal">
+            <span class="program-kicker">Belum yakin?</span>
+            <h3>Tes arah minat</h3>
+            <p>Ceritakan nilai, pengalaman pesantren/sekolah, kemampuan bahasa, dan target masa depanmu.</p>
+            <div class="tags">
+              <span class="tag">1:1 call</span>
+              <span class="tag">Gratis</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="roadmap" id="roadmap">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Roadmap berkas</span>
+            <h2>Dari niat sampai boarding, alurnya dibuat jelas.</h2>
+          </div>
+          <p>Kamu tidak perlu menebak urutan. Kami bantu pecah proses besar jadi langkah kecil.</p>
+        </div>
+        <div class="steps">
+          <aside class="steps-sticky reveal">
+            <h3>6 langkah menuju Cairo</h3>
+            <p>Simpan roadmap ini sebagai gambaran awal. Detail dokumen akan disesuaikan dengan kondisi pendaftar.</p>
+            <div class="hero-actions">
+              <a class="btn btn-primary" href="GANTI_DENGAN_LINK_GOOGLE_FORM" target="_blank" rel="noopener">Ambil checklist</a>
+            </div>
+          </aside>
+          <div class="step-list">
+            <article class="step reveal">
+              <div class="step-num">01</div>
+              <div>
+                <h4>Konsultasi dan pemetaan jurusan</h4>
+                <p>Tim memeriksa tujuan, latar pendidikan, kemampuan bahasa, dan opsi fakultas yang paling masuk akal.</p>
+              </div>
+            </article>
+            <article class="step reveal">
+              <div class="step-num">02</div>
+              <div>
+                <h4>Audit dokumen identitas</h4>
+                <p>KTP, KK, paspor, akta, foto, dan kesamaan nama dicek agar tidak menjadi hambatan.</p>
+              </div>
+            </article>
+            <article class="step reveal">
+              <div class="step-num">03</div>
+              <div>
+                <h4>Dokumen akademik dan rekomendasi</h4>
+                <p>Ijazah, transkrip, surat rekomendasi, surat sehat, dan dokumen pendukung disusun rapi.</p>
+              </div>
+            </article>
+            <article class="step reveal">
+              <div class="step-num">04</div>
+              <div>
+                <h4>Legalisir dan terjemahan</h4>
+                <p>Proses terjemah tersumpah dan legalisir diarahkan sesuai kebutuhan pendaftaran.</p>
+              </div>
+            </article>
+            <article class="step reveal">
+              <div class="step-num">05</div>
+              <div>
+                <h4>Persiapan bahasa dan seleksi</h4>
+                <p>Kamu mendapat arahan belajar untuk imla, nahwu, sharaf, hafalan, dan adaptasi bahasa.</p>
+              </div>
+            </article>
+            <article class="step reveal">
+              <div class="step-num">06</div>
+              <div>
+                <h4>Submit, follow-up, dan keberangkatan</h4>
+                <p>Setelah formulir masuk, tim membantu follow-up data dan memberi gambaran persiapan berangkat.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="life" id="cerita">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Cerita alumni</span>
+            <h2>Yang bikin tenang: ada yang pernah melewati jalurnya.</h2>
+          </div>
+          <p>Persiapan kuliah ke Mesir terasa lebih ringan ketika kamu tahu apa yang sedang kamu hadapi.</p>
+        </div>
+        <div class="life-grid">
+          <article class="quote-card reveal">
+            <p>"Yang paling membantu bukan cuma pengurusan berkas, tapi cara tim menjelaskan prosesnya sampai keluarga saya ikut paham."</p>
+            <div class="quote-author">
+              <span class="avatar">AR</span>
+              <span>Ahmad Rizky - Fakultas Syariah, Al-Azhar</span>
+            </div>
+          </article>
+          <aside class="community-card reveal">
+            <ul class="community-list">
+              <li><span>Adaptasi awal</span><strong>dibimbing</strong></li>
+              <li><span>Komunitas Indonesia</span><strong>aktif</strong></li>
+              <li><span>Persiapan keluarga</span><strong>dibantu</strong></li>
+              <li><span>Update dokumen</span><strong>dipantau</strong></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <span class="eyebrow">Pertanyaan cepat</span>
+            <h2>Sebelum daftar, ini yang sering ditanyakan.</h2>
+          </div>
+        </div>
+        <div class="faq-grid">
+          <article class="faq-item reveal">
+            <h3>Apakah konsultasi awal berbayar?</h3>
+            <p>Tidak. Konsultasi awal gratis agar kamu bisa memahami pilihan jalur dan kebutuhan berkas.</p>
+          </article>
+          <article class="faq-item reveal">
+            <h3>Kalau belum punya paspor boleh konsultasi?</h3>
+            <p>Boleh. Justru lebih baik mulai dari awal supaya timeline pembuatan dokumen tidak mepet.</p>
+          </article>
+          <article class="faq-item reveal">
+            <h3>Apakah harus lulusan pesantren?</h3>
+            <p>Tidak selalu. Namun kemampuan bahasa Arab dan kesiapan akademik tetap perlu dipetakan.</p>
+          </article>
+          <article class="faq-item reveal">
+            <h3>Apakah tersedia jalur beasiswa?</h3>
+            <p>Ada beberapa opsi yang bisa dibahas sesuai periode, syarat, dan kesiapan dokumen pendaftar.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="daftar">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div>
+            <span class="eyebrow">Mulai dari satu chat</span>
+            <h2>Kalau Al-Azhar adalah tujuanmu, mari susun jalannya.</h2>
+            <p>Isi formulir singkat. Tim Annahda akan menghubungi dan membantu kamu memahami langkah berikutnya.</p>
+          </div>
+          <a class="btn btn-primary" href="GANTI_DENGAN_LINK_GOOGLE_FORM" target="_blank" rel="noopener">Isi formulir pendaftaran</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <strong>Annahda Education</strong><br />
+        Najah Bersama - Part of Annahda Group
+      </div>
+      <div class="footer-links">
+        <a href="https://wa.me/GANTI_NOMOR_WA" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="https://instagram.com/GANTI_INSTAGRAM" target="_blank" rel="noopener">Instagram</a>
+        <a href="mailto:GANTI_EMAIL">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.querySelector('#nav');
+    const toggle = document.querySelector('.menu-toggle');
+    const themeToggle = document.querySelector('.theme-toggle');
+    const links = document.querySelectorAll('.nav-links a');
+    const savedTheme = localStorage.getItem('annahda-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    function setTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      localStorage.setItem('annahda-theme', theme);
+      const isDark = theme === 'dark';
+      themeToggle.textContent = isDark ? 'Light' : 'Dark';
+      themeToggle.setAttribute('aria-label', isDark ? 'Aktifkan mode terang' : 'Aktifkan mode gelap');
+      themeToggle.setAttribute('aria-pressed', String(isDark));
+    }
+
+    setTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+
+    toggle.addEventListener('click', () => {
+      const isOpen = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    themeToggle.addEventListener('click', () => {
+      const current = document.documentElement.dataset.theme;
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    });
+
+    links.forEach((link) => {
+      link.addEventListener('click', () => {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    reveals.forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
