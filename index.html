@@ -660,31 +660,40 @@
       grid-template-columns: 1fr auto;
       align-items: center;
       gap: 28px;
+      border: 1px solid rgba(124, 47, 47, .16);
       border-radius: 30px;
       padding: 34px;
-      color: var(--white);
+      color: var(--maroon-2);
       background:
-        linear-gradient(135deg, rgba(111, 23, 40, .96), rgba(24, 17, 21, .96)),
+        linear-gradient(135deg, rgba(255, 250, 242, .95), rgba(242, 217, 139, .76) 52%, rgba(124, 47, 47, .16)),
         url("assets/hero-students-cairo.png") center / cover no-repeat;
-      box-shadow: 0 30px 90px rgba(74, 14, 26, .24);
+      box-shadow: 0 28px 80px rgba(74, 14, 26, .14);
+    }
+    .cta-box .eyebrow {
+      color: var(--maroon);
+    }
+    .cta-box .eyebrow::before {
+      background: var(--gold);
     }
     .cta-box h2 {
       max-width: 760px;
       font-size: clamp(2rem, 5vw, 4rem);
       line-height: .96;
       letter-spacing: -.05em;
+      color: var(--maroon-2);
     }
     .cta-box p {
       max-width: 620px;
       margin-top: 12px;
-      color: rgba(255, 255, 255, .7);
+      color: color-mix(in srgb, var(--ink) 72%, transparent);
       font-weight: 600;
     }
     .cta-box .btn-primary {
-      background: var(--gold);
-      color: var(--maroon-2);
-      box-shadow: none;
+      background: var(--maroon);
+      color: var(--white);
+      box-shadow: 0 16px 34px rgba(111, 23, 40, .18);
     }
+    .cta-box .btn-primary:hover { background: var(--maroon-2); }
 
     footer {
       border-top: 1px solid var(--line);
@@ -793,9 +802,13 @@
     }
     [data-theme="dark"] .cta-box {
       color: #fff7e8;
+      border-color: rgba(229, 191, 88, .2);
       background:
-        linear-gradient(135deg, rgba(18, 7, 7, .82), rgba(84, 28, 24, .78)),
+        linear-gradient(135deg, rgba(18, 7, 7, .86), rgba(84, 28, 24, .72)),
         url("assets/hero-students-cairo.png") center / cover no-repeat;
+    }
+    [data-theme="dark"] .cta-box .eyebrow {
+      color: #e89a8f;
     }
     [data-theme="dark"] .cta-box h2 {
       color: #fff0c2;
@@ -806,6 +819,9 @@
     }
     [data-theme="dark"] footer {
       background: #080505;
+    }
+    [data-theme="dark"] .footer-links a {
+      color: var(--gold-soft);
     }
 
     .reveal {
