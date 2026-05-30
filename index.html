@@ -713,9 +713,32 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 14px;
+      gap: 10px;
     }
-    .footer-links a { color: var(--maroon); font-weight: 800; }
+    .footer-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 38px;
+      padding: 0 12px;
+      border: 1px solid rgba(124, 47, 47, .14);
+      border-radius: 999px;
+      color: var(--maroon);
+      background: color-mix(in srgb, var(--paper) 82%, transparent);
+      font-weight: 800;
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+    }
+    .footer-links a:hover {
+      transform: translateY(-2px);
+      border-color: rgba(124, 47, 47, .28);
+      background: color-mix(in srgb, var(--gold) 16%, var(--paper));
+    }
+    .footer-links svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      stroke-width: 2.2;
+    }
 
     [data-theme="dark"] .nav {
       border-color: rgba(229, 191, 88, .45);
@@ -860,6 +883,12 @@
     }
     [data-theme="dark"] .footer-links a {
       color: var(--gold-soft);
+      border-color: rgba(229, 191, 88, .2);
+      background: rgba(255, 247, 232, .055);
+    }
+    [data-theme="dark"] .footer-links a:hover {
+      border-color: rgba(229, 191, 88, .38);
+      background: rgba(229, 191, 88, .12);
     }
 
     .reveal {
@@ -1370,9 +1399,28 @@
         Najah Bersama - Part of Annahda Group
       </div>
       <div class="footer-links">
-        <a href="https://wa.me/6287840007117" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="https://www.instagram.com/annahda.education?utm_source=ig_web_button_share_sheet&amp;igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener">Instagram</a>
-        <a href="mailto:GANTI_EMAIL">Email</a>
+        <a href="https://wa.me/6287840007117" target="_blank" rel="noopener" aria-label="WhatsApp Annahda">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20.5 11.8a8.4 8.4 0 0 1-12.4 7.4L4 20.3l1.1-4A8.4 8.4 0 1 1 20.5 11.8Z" />
+            <path d="M9.1 8.2c.2-.5.4-.5.7-.5h.5c.2 0 .4.1.5.4l.7 1.7c.1.3.1.4-.1.6l-.4.5c-.1.2-.2.3 0 .6.4.8 1.1 1.5 1.9 1.9.3.2.4.1.6 0l.5-.4c.2-.2.4-.2.6-.1l1.7.8c.3.1.4.3.4.5v.5c0 .3-.1.6-.5.8-.5.3-1.4.5-2.6.1-2.3-.8-4.4-2.8-5.2-5.1-.4-1.1-.1-1.8.2-2.3Z" />
+          </svg>
+          WhatsApp
+        </a>
+        <a href="https://www.instagram.com/annahda.education" target="_blank" rel="noopener" aria-label="Instagram Annahda">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="3" width="18" height="18" rx="5" />
+            <circle cx="12" cy="12" r="4" />
+            <path d="M17.5 6.5h.01" />
+          </svg>
+          Instagram
+        </a>
+        <a href="mailto:GANTI_EMAIL" aria-label="Email Annahda">
+          <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="5" width="18" height="14" rx="2" />
+            <path d="m4 7 8 6 8-6" />
+          </svg>
+          Email
+        </a>
       </div>
     </div>
   </footer>
